@@ -1,0 +1,3 @@
+name: LordSaad44-t2
+main: com.tenjava.entries.LordSaad44.t2.TenJava
+version: '${project.version}'
