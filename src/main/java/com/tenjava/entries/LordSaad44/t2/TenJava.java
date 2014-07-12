@@ -68,7 +68,7 @@ public class TenJava extends JavaPlugin implements Listener {
                                 Location loc = new Location(Bukkit.getWorld(event.getPlayer().getWorld().getName()), x, y, z);
                                 if (Bukkit.getWorld(event.getPlayer().getWorld().getName()).getBlockAt(loc).getType() == Material.AIR) {
                                     World world = event.getClickedBlock().getWorld();
-                                    world.getBlockAt(loc).setType(Material.REDSTONE);
+                                    world.getBlockAt(loc).setType(Material.REDSTONE_WIRE);
                                 }
                             }
                         }
