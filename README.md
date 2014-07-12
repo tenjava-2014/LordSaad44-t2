@@ -5,7 +5,7 @@ LordSaad44's ten.java submission
 
 This is a submission for the 2014 ten.java contest.
 
-- __Theme:__
+- __Theme:__ How can energy be harnessed and used in the Minecraft world?
 - __Time:__ Time 2 (7/12/2014 09:00 to 7/12/2014 19:00 UTC)
 - __MC Version:__ 1.7.9 (latest Bukkit beta)
 - __Stream URL:__ https://twitch.tv/LordSaad44
@@ -14,22 +14,20 @@ This is a submission for the 2014 ten.java contest.
 
 ---------------------------------------
 
-Compilation
+Creeper Stone
 -----------
 
-- Download & Install [Maven 3](http://maven.apache.org/download.html)
-- Clone the repository: `git clone https://github.com/tenjava/LordSaad44-t2`
-- Compile and create the plugin package using Maven: `mvn`
-
-Maven will download all required dependencies and build a ready-for-use plugin package!
+Creepers have a rare drop called creeper stone (enchanted sulphur).
+Creeper stone can be used as furnace fuel/energy and can smelt up to 50 items.
+Creeper stone can also act as redstone wiring by normally placing it on the ground.
+Charged creepers drop 10 creeper stones while normal creepers have a rare chance of dropping one creeper stone.
+Creeper stone is good energy.
 
 ---------------------------------------
 
 Usage
 -----
 
-1. Install plugin
-2. Do things with it
+1. Drag n' drop the jar file into your plugin folder.
+2. Start the server and enjoy!
 
-<!-- Hi, LordSaad44! This is the default README for every ten.java submission. -->
-<!-- We encourage you to edit this README with some information about your submission – keep in mind you'll be scored on documentation! -->
