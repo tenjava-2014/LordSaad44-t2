@@ -7,7 +7,6 @@ import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Creeper;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDeathEvent;
@@ -42,8 +41,7 @@ public class TenJava extends JavaPlugin {
     public void onCreeperKill(EntityDeathEvent event) {
         if (event.getEntity() instanceof Creeper) {
             Creeper creeper = (Creeper) event.getEntity();
-            if (creeper.getKiller() instanceof Player) {
-                Player p = creeper.getKiller();
+            if (creeper.getKiller() != null) {
                 Random rnd = new Random();
                 int randomnumber = rnd.nextInt(2);
                 if (randomnumber == 2) {
@@ -52,9 +50,10 @@ public class TenJava extends JavaPlugin {
                     ItemMeta meta = item.getItemMeta();
                     meta.addEnchant(Enchantment.LURE, 1, true);
                     meta.setDisplayName(ChatColor.DARK_BLUE + "" + ChatColor.BOLD + "Creeper Stone");
-                    item.setItemMeta(meta);
                     List<String> lore = new ArrayList<String>();
                     lore.add(ChatColor.YELLOW + "Use me like redstone or use me for fuel.");
+                    meta.setLore(lore);
+                    item.setItemMeta(meta);
                     Bukkit.getServer().getWorld(creeper.getWorld().getUID()).dropItemNaturally(loc, item);
                 }
             }
