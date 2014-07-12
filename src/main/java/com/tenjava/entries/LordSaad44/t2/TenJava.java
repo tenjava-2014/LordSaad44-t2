@@ -1,10 +1,6 @@
 package com.tenjava.entries.LordSaad44.t2;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
+import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Creeper;
 import org.bukkit.event.EventHandler;
@@ -19,7 +15,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class TenJava extends JavaPlugin implements Listener {
 
@@ -45,9 +40,6 @@ public class TenJava extends JavaPlugin implements Listener {
         if (event.getEntity() instanceof Creeper) {
             Creeper creeper = (Creeper) event.getEntity();
             if (creeper.getKiller() != null) {
-                Random rnd = new Random();
-                int num = rnd.nextInt(5);
-                if (num == 5) {
                     Location loc = creeper.getLocation();
                     ItemStack item = new ItemStack(Material.SULPHUR);
                     ItemMeta meta = item.getItemMeta();
@@ -58,7 +50,6 @@ public class TenJava extends JavaPlugin implements Listener {
                     meta.setLore(lore);
                     item.setItemMeta(meta);
                     Bukkit.getServer().getWorld(creeper.getWorld().getUID()).dropItemNaturally(loc, item);
-                }
             }
         }
     }
@@ -72,11 +63,12 @@ public class TenJava extends JavaPlugin implements Listener {
                         if (event.getPlayer().getItemInHand().hasItemMeta()) {
                             if (event.getPlayer().getItemInHand().getItemMeta().hasEnchant(Enchantment.LURE)) {
                                 int x = event.getClickedBlock().getX();
-                                int y = event.getClickedBlock().getY();
+                                int y = event.getClickedBlock().getY() + 1;
                                 int z = event.getClickedBlock().getZ();
                                 Location loc = new Location(Bukkit.getWorld(event.getPlayer().getWorld().getName()), x, y, z);
-                                if (Bukkit.getWorld(event.getPlayer().getWorld().getName()).getBlockAt(loc).getRelative(BlockFace.UP).getType() == Material.AIR) {
-                                    Bukkit.getWorld(loc.getWorld().getName()).getBlockAt(loc).getRelative(BlockFace.UP).setType(Material.REDSTONE);
+                                if (Bukkit.getWorld(event.getPlayer().getWorld().getName()).getBlockAt(loc).getType() == Material.AIR) {
+                                    World world = event.getClickedBlock().getWorld();
+                                    world.getBlockAt(loc).setType(Material.REDSTONE);
                                 }
                             }
                         }
