@@ -19,6 +19,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TenJava extends JavaPlugin implements Listener {
 
@@ -44,16 +45,20 @@ public class TenJava extends JavaPlugin implements Listener {
         if (event.getEntity() instanceof Creeper) {
             Creeper creeper = (Creeper) event.getEntity();
             if (creeper.getKiller() != null) {
-                Location loc = creeper.getLocation();
-                ItemStack item = new ItemStack(Material.SULPHUR);
-                ItemMeta meta = item.getItemMeta();
-                meta.addEnchant(Enchantment.LURE, 1, true);
-                meta.setDisplayName(ChatColor.DARK_RED + "Creeper Stone");
-                List<String> lore = new ArrayList<String>();
-                lore.add(ChatColor.YELLOW + "Use me like redstone or use me for fuel. I'm good energy.");
-                meta.setLore(lore);
-                item.setItemMeta(meta);
-                Bukkit.getServer().getWorld(creeper.getWorld().getUID()).dropItemNaturally(loc, item);
+                Random rnd = new Random();
+                int num = rnd.nextInt(5);
+                if (num == 5) {
+                    Location loc = creeper.getLocation();
+                    ItemStack item = new ItemStack(Material.SULPHUR);
+                    ItemMeta meta = item.getItemMeta();
+                    meta.addEnchant(Enchantment.LURE, 1, true);
+                    meta.setDisplayName(ChatColor.DARK_RED + "Creeper Stone");
+                    List<String> lore = new ArrayList<String>();
+                    lore.add(ChatColor.YELLOW + "Use me like redstone or use me for fuel. I'm good energy.");
+                    meta.setLore(lore);
+                    item.setItemMeta(meta);
+                    Bukkit.getServer().getWorld(creeper.getWorld().getUID()).dropItemNaturally(loc, item);
+                }
             }
         }
     }
