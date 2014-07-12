@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/* How can energy be harnessed and used in the Minecraft world? */
+
 public class TenJava extends JavaPlugin implements Listener {
 
     public void onEnable() {
