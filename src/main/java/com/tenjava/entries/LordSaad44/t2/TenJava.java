@@ -83,7 +83,7 @@ public class TenJava extends JavaPlugin implements Listener {
         if (event.getFuel().getType() == Material.SULPHUR) {
             if (event.getFuel().hasItemMeta()) {
                 if (event.getFuel().getItemMeta().hasEnchant(Enchantment.LURE)) {
-                    event.setBurnTime(1000);
+                    event.setBurnTime(10000);
                     event.setBurning(true);
                 }
             }
