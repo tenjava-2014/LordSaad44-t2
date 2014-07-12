@@ -52,7 +52,7 @@ public class TenJava extends JavaPlugin {
                     meta.addEnchant(Enchantment.LURE, 1, true);
                     meta.setDisplayName(ChatColor.DARK_BLUE + "" + ChatColor.BOLD + "Creeper Stone");
                     List<String> lore = new ArrayList<String>();
-                    lore.add(ChatColor.YELLOW + "Use me like redstone or use me for fuel.");
+                    lore.add(ChatColor.YELLOW + "Use me like redstone or use me for fuel. I'm good energy.");
                     meta.setLore(lore);
                     item.setItemMeta(meta);
                     Bukkit.getServer().getWorld(creeper.getWorld().getUID()).dropItemNaturally(loc, item);
