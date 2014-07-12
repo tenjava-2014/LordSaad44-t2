@@ -52,10 +52,11 @@ public class TenJava extends JavaPlugin implements Listener {
                     meta.setLore(lore);
                     item.setItemMeta(meta);
                     Bukkit.getServer().getWorld(creeper.getWorld().getUID()).dropItemNaturally(loc, item);
+
                 } else {
                     Random rnd = new Random();
-                    int num = rnd.nextInt(4);
-                    if (num >= 3) {
+                        int num = rnd.nextInt(4);
+                        if (num == 3) {
                         Location loc = creeper.getLocation();
                         ItemStack item = new ItemStack(Material.SULPHUR);
                         ItemMeta meta = item.getItemMeta();
