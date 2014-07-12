@@ -10,6 +10,7 @@ import org.bukkit.entity.Creeper;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.inventory.FurnaceBurnEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -78,6 +79,18 @@ public class TenJava extends JavaPlugin {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    public void Furnace(FurnaceBurnEvent event) {
+        if (event.getFuel().getType() == Material.SULPHUR) {
+            if (event.getFuel().hasItemMeta()) {
+                if (event.getFuel().getItemMeta().hasEnchant(Enchantment.LURE)) {
+                    event.setBurnTime(100);
+                    event.setBurning(true);
                 }
             }
         }
